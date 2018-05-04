@@ -59,13 +59,13 @@ class ResultsViewController: UIViewController{
         mapView.clear()
         for i in 0 ..< results.count {
             if i != routeIndex {
-                results[i].drawOnMap(mapView, approximate: false, strokeColor: UIColor.lightGray, strokeWidth: 3.0)
+                results[i].drawOnMap(mapView, approximate: false, strokeColor: UIColor.darkGray, strokeWidth: 3.0)
             }
         }
         mapView.animate(with: GMSCameraUpdate.fit(results[routeIndex].bounds!, withPadding: 40.0))
-        results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: UIColor.purple, strokeWidth: 4.0)
-        results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Origin", color: UIColor.green, opacity: 1.0, flat: true)
-        results[routeIndex].drawDestinationMarkerOnMap(mapView, title: "Destination", color: UIColor.red, opacity: 1.0, flat: true)
+        results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: UIColor.red, strokeWidth: 4.0)
+        results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Origin", color: UIColor.green, opacity: 1.0, flat: true, imageName: "ic_start_point")
+        results[routeIndex].drawDestinationMarkerOnMap(mapView, title: "Destination", color: UIColor.red, opacity: 1.0, flat: true, imageName: "ic_end_point")
         directions.reloadData()
     }
 

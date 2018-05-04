@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		60F60723972D55A758157C1A /* Pods_PXGoogleDirectionsSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3225BF5079705D45C0D54DDE /* Pods_PXGoogleDirectionsSample.framework */; };
+		659C4DA2208E1A1500CB8EEC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C4DA1208E1A1500CB8EEC /* Extensions.swift */; };
+		659C4DA8208E1B0B00CB8EEC /* ItineraryToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C4DA6208E1B0B00CB8EEC /* ItineraryToolbarController.swift */; };
 		7A08A1852014AD86004E12A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A08A1842014AD86004E12A9 /* UIKit.framework */; };
 		7A9B1ACF1FA64A940037B481 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B1ACE1FA64A940037B481 /* GoogleMaps.bundle */; };
-		7AC08E901D300D6700F06B44 /* GoogleAPIKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC08E8F1D300D6700F06B44 /* GoogleAPIKeyProvider.swift */; };
 		7AC37A3B1DDC397200E03E4E /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC37A381DDC397200E03E4E /* GoogleMaps.framework */; };
 		7AC37A3C1DDC397200E03E4E /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC37A391DDC397200E03E4E /* GoogleMapsBase.framework */; };
 		7AC37A3D1DDC397200E03E4E /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC37A3A1DDC397200E03E4E /* GoogleMapsCore.framework */; };
@@ -41,9 +42,10 @@
 
 /* Begin PBXFileReference section */
 		3225BF5079705D45C0D54DDE /* Pods_PXGoogleDirectionsSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PXGoogleDirectionsSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		659C4DA1208E1A1500CB8EEC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		659C4DA6208E1B0B00CB8EEC /* ItineraryToolbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryToolbarController.swift; sourceTree = "<group>"; };
 		7A08A1842014AD86004E12A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A9B1ACE1FA64A940037B481 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = ../../Dependencies/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		7AC08E8F1D300D6700F06B44 /* GoogleAPIKeyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAPIKeyProvider.swift; path = Private/GoogleAPIKeyProvider.swift; sourceTree = SOURCE_ROOT; };
 		7AC37A381DDC397200E03E4E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Pods/PXGoogleDirections/Dependencies/GoogleMaps.framework; sourceTree = "<group>"; };
 		7AC37A391DDC397200E03E4E /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Pods/PXGoogleDirections/Dependencies/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		7AC37A3A1DDC397200E03E4E /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Pods/PXGoogleDirections/Dependencies/GoogleMapsCore.framework; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		659C4DA5208E1AE700CB8EEC /* ItineraryToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				659C4DA6208E1B0B00CB8EEC /* ItineraryToolbarController.swift */,
+			);
+			path = ItineraryToolbar;
+			sourceTree = "<group>";
+		};
 		7AC68B551D300D0300B81C70 = {
 			isa = PBXGroup;
 			children = (
@@ -130,15 +140,16 @@
 			isa = PBXGroup;
 			children = (
 				7AC68B611D300D0400B81C70 /* AppDelegate.swift */,
-				7AC08E8F1D300D6700F06B44 /* GoogleAPIKeyProvider.swift */,
 				7ACF3EB81D427D7300830BD6 /* MainViewController.swift */,
 				7ACF3EB91D427D7300830BD6 /* ResultsViewController.swift */,
 				7ACF3EBA1D427D7300830BD6 /* WaypointViewController.swift */,
-				7ACF3EBE1D427DA100830BD6 /* LaunchScreen.xib */,
+				659C4DA5208E1AE700CB8EEC /* ItineraryToolbar */,
 				7AC68B651D300D0400B81C70 /* Main.storyboard */,
+				7ACF3EBE1D427DA100830BD6 /* LaunchScreen.xib */,
 				7AC68B681D300D0400B81C70 /* Images.xcassets */,
 				7AC68B6D1D300D0400B81C70 /* Info.plist */,
 				7A9B1ACE1FA64A940037B481 /* GoogleMaps.bundle */,
+				659C4DA1208E1A1500CB8EEC /* Extensions.swift */,
 			);
 			path = PXGoogleDirectionsSample;
 			sourceTree = "<group>";
@@ -191,8 +202,8 @@
 				7AC68B5A1D300D0300B81C70 /* Sources */,
 				7AC68B5B1D300D0300B81C70 /* Frameworks */,
 				7AC68B5C1D300D0300B81C70 /* Resources */,
-				295018C93D0F212C41A0F980 /* [CP] Embed Pods Frameworks */,
 				DB3204A5C84EC3A7A17CAFE8 /* [CP] Copy Pods Resources */,
+				EE82E0304ADF2538E1A373BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,7 +226,7 @@
 				TargetAttributes = {
 					7AC68B5D1D300D0300B81C70 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = H4ZDL2CC7Y;
+						DevelopmentTeam = 82PA648THA;
 						LastSwiftMigration = 0910;
 					};
 				};
@@ -253,24 +264,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		295018C93D0F212C41A0F980 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PXGoogleDirectionsSample/Pods-PXGoogleDirectionsSample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PXGoogleDirections/PXGoogleDirections.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PXGoogleDirections.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PXGoogleDirectionsSample/Pods-PXGoogleDirectionsSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7BD204DEC9C1B9C572EA1A73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,13 +288,36 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PXGoogleDirectionsSample/Pods-PXGoogleDirectionsSample-resources.sh",
+				"${PODS_ROOT}/../../Dependencies/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PXGoogleDirectionsSample/Pods-PXGoogleDirectionsSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE82E0304ADF2538E1A373BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PXGoogleDirectionsSample/Pods-PXGoogleDirectionsSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Droar/Droar.framework",
+				"${BUILT_PRODUCTS_DIR}/SDVersion/SDVersion.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Droar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDVersion.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PXGoogleDirectionsSample/Pods-PXGoogleDirectionsSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -311,10 +327,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AC08E901D300D6700F06B44 /* GoogleAPIKeyProvider.swift in Sources */,
+				659C4DA2208E1A1500CB8EEC /* Extensions.swift in Sources */,
 				7AC68B621D300D0400B81C70 /* AppDelegate.swift in Sources */,
 				7ACF3EBC1D427D7300830BD6 /* ResultsViewController.swift in Sources */,
 				7ACF3EBB1D427D7300830BD6 /* MainViewController.swift in Sources */,
+				659C4DA8208E1B0B00CB8EEC /* ItineraryToolbarController.swift in Sources */,
 				7ACF3EBD1D427D7300830BD6 /* WaypointViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +466,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H4ZDL2CC7Y;
+				DEVELOPMENT_TEAM = 82PA648THA;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +475,7 @@
 				);
 				INFOPLIST_FILE = PXGoogleDirectionsSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Poulpix.PXGoogleDirectionsSample;
+				PRODUCT_BUNDLE_IDENTIFIER = as.PXGoogleDirectionsSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -471,7 +488,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H4ZDL2CC7Y;
+				DEVELOPMENT_TEAM = 82PA648THA;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -480,7 +497,7 @@
 				);
 				INFOPLIST_FILE = PXGoogleDirectionsSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Poulpix.PXGoogleDirectionsSample;
+				PRODUCT_BUNDLE_IDENTIFIER = as.PXGoogleDirectionsSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

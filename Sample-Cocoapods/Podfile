@@ -5,4 +5,6 @@ use_frameworks!
 
 target 'PXGoogleDirectionsSample' do
 	pod 'PXGoogleDirections', :path => '../'
+
+    pod 'Droar'
 end

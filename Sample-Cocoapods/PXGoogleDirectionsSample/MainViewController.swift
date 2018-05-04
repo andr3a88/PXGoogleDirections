@@ -38,6 +38,10 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var waypointsLabel: UILabel!
 	@IBOutlet weak var optimizeWaypointsSwitch: UISwitch!
 	@IBOutlet weak var languageField: UISegmentedControl!
+
+    @IBOutlet weak var itineraryToolbar: UIView!
+    @IBOutlet weak var constraItineraryToolbarTop: NSLayoutConstraint!
+
 	var startArriveDate: Date?
 	var waypoints: [PXLocation] = [PXLocation]()
 	
@@ -61,6 +65,9 @@ class MainViewController: UIViewController {
 		let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(MainViewController.clearButtonTouched(_:)))
 		keyboardDoneButtonView.setItems([doneButton, clearButton], animated: false)
 		startArriveDateField.inputAccessoryView = keyboardDoneButtonView
+
+        originField.text = "Milan"
+        destinationField.text = "Venice"
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -119,6 +126,11 @@ class MainViewController: UIViewController {
 		UIView.animate(withDuration: 0.5, animations: {
 			self.advancedView.alpha =  (self.advancedSwitch.isOn ? 1.0 : 0.0)
 		})
+
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.constraItineraryToolbarTop.constant = (self.advancedSwitch.isOn ? 0.0 : -148.0)
+            self.view.layoutIfNeeded()
+        })
 	}
 	
 	@IBAction func selectDateButtonTouched(_ sender: UIButton) {
@@ -159,7 +171,7 @@ class MainViewController: UIViewController {
 			directionsAPI.transitRoutingPreference = transitRoutingPreferenceFromField()
 			directionsAPI.trafficModel = trafficModelFromField()
 			directionsAPI.units = unitFromField()
-			directionsAPI.alternatives = alternativeSwitch.isOn
+			directionsAPI.alternatives = true
 			directionsAPI.transitModes = Set()
 			if busSwitch.isOn {
 				directionsAPI.transitModes.insert(.bus)
@@ -214,7 +226,7 @@ class MainViewController: UIViewController {
 			directionsAPI.transitRoutingPreference = nil
 			directionsAPI.trafficModel = nil
 			directionsAPI.units = nil
-			directionsAPI.alternatives = nil
+			directionsAPI.alternatives = true
 			directionsAPI.transitModes = Set()
 			directionsAPI.featuresToAvoid = Set()
 			directionsAPI.departureTime = nil

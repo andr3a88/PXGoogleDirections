@@ -109,11 +109,12 @@ public class PXGoogleDirectionsRoute: NSObject {
 	- parameter flat: An optional indicator to flatten the marker
 	- returns: The resulting `GMSMarker` object that was drawn to the map
 	*/
-	@discardableResult public func drawOriginMarkerOnMap(_ map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false) -> GMSMarker? {
+	@discardableResult public func drawOriginMarkerOnMap(_ map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false, imageName: String?) -> GMSMarker? {
 		var marker: GMSMarker?
 		if let p = path {
 			if p.count() > 1 {
-				marker = drawMarkerWithCoordinates(p.coordinate(at: 0), onMap: map, title: title, color: color, opacity: opacity, flat: flat)
+                marker = drawMarkerWithCoordinates(p.coordinate(at: 0), onMap: map, title: title, color: color, opacity: opacity, flat: flat, imageName: imageName)
+                marker?.groundAnchor = CGPoint(x: 0.5, y: 0.5)
 			}
 		}
 		return marker
@@ -129,11 +130,12 @@ public class PXGoogleDirectionsRoute: NSObject {
 	- parameter flat: An optional indicator to flatten the marker
 	- returns: The resulting `GMSMarker` object that was drawn to the map
 	*/
-	@discardableResult public func drawDestinationMarkerOnMap(_ map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false) -> GMSMarker? {
+	@discardableResult public func drawDestinationMarkerOnMap(_ map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false, imageName: String?) -> GMSMarker? {
 		var marker: GMSMarker?
 		if let p = path {
 			if p.count() > 1 {
-				marker = drawMarkerWithCoordinates(p.coordinate(at: p.count() - 1), onMap: map, title: title, color: color, opacity: opacity, flat: flat)
+                marker = drawMarkerWithCoordinates(p.coordinate(at: p.count() - 1), onMap: map, title: title, color: color, opacity: opacity, flat: flat, imageName: imageName)
+                marker?.groundAnchor = CGPoint(x: 0.5, y: 0.75)
 			}
 		}
 		return marker
@@ -141,10 +143,10 @@ public class PXGoogleDirectionsRoute: NSObject {
 	
 	// MARK: Private functions
 
-	fileprivate func drawMarkerWithCoordinates(_ coordinates: CLLocationCoordinate2D, onMap map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false) -> GMSMarker {
+    fileprivate func drawMarkerWithCoordinates(_ coordinates: CLLocationCoordinate2D, onMap map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false, imageName: String?) -> GMSMarker {
 		let marker = GMSMarker(position: coordinates)
 		marker.title = title
-		marker.icon = GMSMarker.markerImage(with: color)
+        marker.icon = imageName != nil ? UIImage(named: imageName!)! : GMSMarker.markerImage(with: color)
 		marker.opacity = opacity
 		marker.isFlat = flat
 		marker.map = map
