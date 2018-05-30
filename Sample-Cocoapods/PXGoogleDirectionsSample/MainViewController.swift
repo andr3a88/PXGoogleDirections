@@ -39,8 +39,9 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var optimizeWaypointsSwitch: UISwitch!
 	@IBOutlet weak var languageField: UISegmentedControl!
 
-    @IBOutlet weak var itineraryToolbar: UIView!
     @IBOutlet weak var constraItineraryToolbarTop: NSLayoutConstraint!
+
+    var itineraryToolbarController: ItineraryToolbarController!
 
 	var startArriveDate: Date?
 	var waypoints: [PXLocation] = [PXLocation]()
@@ -68,6 +69,8 @@ class MainViewController: UIViewController {
 
         originField.text = "Milan"
         destinationField.text = "Venice"
+
+
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -253,6 +256,14 @@ class MainViewController: UIViewController {
 			})
 		}
 	}
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        if let destination = destination as? ItineraryToolbarController {
+            itineraryToolbarController = destination
+            itineraryToolbarController.delegate = self
+        }
+    }
 }
 
 extension MainViewController: PXGoogleDirectionsDelegate {
@@ -290,4 +301,23 @@ extension MainViewController: MainViewControllerDelegate {
 		waypoints.append(waypoint)
 		updateWaypointsField()
 	}
+}
+
+extension MainViewController: ItineraryToolbarDelegate {
+
+    func itineraryToolbarTextFieldBeginEditing() {
+
+    }
+
+    func itineraryToolbarBackButton() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.constraItineraryToolbarTop.constant = -148.0
+            self.view.layoutIfNeeded()
+        })
+    }
+
+    func itineraryToolbarSwitchButton() {
+        
+    }
+
 }

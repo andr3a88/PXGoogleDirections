@@ -561,7 +561,7 @@
                                     <constraint firstAttribute="height" constant="148" id="kWK-11-y8b"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="TQT-BH-6zH" kind="embed" id="2o0-lU-rzQ"/>
+                                    <segue destination="TQT-BH-6zH" kind="embed" identifier="itineraryToolbarSegue" id="2o0-lU-rzQ"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -617,7 +617,6 @@
                         <outlet property="busSwitch" destination="WlB-Gf-jo8" id="RYL-w8-348"/>
                         <outlet property="constraItineraryToolbarTop" destination="1yd-9M-gfY" id="suQ-Wv-7m4"/>
                         <outlet property="destinationField" destination="vrg-Bp-lTV" id="fLV-kR-yWz"/>
-                        <outlet property="itineraryToolbar" destination="ZfH-kH-oqM" id="Z1c-hl-FFv"/>
                         <outlet property="languageField" destination="cmU-WV-UIh" id="Bru-hL-c4G"/>
                         <outlet property="modeField" destination="Dl9-6b-6lC" id="eUQ-zo-cuE"/>
                         <outlet property="optimizeWaypointsSwitch" destination="PcK-kZ-FMH" id="swM-QJ-6aP"/>
@@ -636,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="285.60719640179911"/>
+            <point key="canvasLocation" x="-135" y="219"/>
         </scene>
         <!--Waypoint View Controller-->
         <scene sceneID="cof-sJ-BgS">
@@ -826,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEZ-xd-Ast" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="286"/>
+            <point key="canvasLocation" x="1004" y="234"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="R9D-o1-RXb">
@@ -1015,6 +1014,9 @@
                                     <constraint firstAttribute="width" constant="30" id="xRV-eh-09N"/>
                                 </constraints>
                                 <state key="normal" image="ic-swap"/>
+                                <connections>
+                                    <action selector="didTapOnSwitchButton:" destination="TQT-BH-6zH" eventType="touchUpInside" id="ey8-WS-wOa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5S-Yt-Ild">
                                 <rect key="frame" x="0.0" y="40" width="40" height="40"/>
@@ -1023,6 +1025,9 @@
                                     <constraint firstAttribute="width" secondItem="E5S-Yt-Ild" secondAttribute="height" multiplier="1:1" id="j2q-SP-1bj"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="didTapOnBackButton:" destination="TQT-BH-6zH" eventType="touchUpInside" id="5g5-6Z-6Wu"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_your_location" translatesAutoresizingMaskIntoConstraints="NO" id="THr-zS-ChH">
                                 <rect key="frame" x="48" y="50" width="20" height="20"/>

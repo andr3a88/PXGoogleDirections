@@ -11,10 +11,11 @@ import UIKit
 protocol ItineraryToolbarDelegate: class {
 
     func itineraryToolbarBackButton()
-    func itineraryToolbarSwitchButton() 
+    func itineraryToolbarSwitchButton()
+    func itineraryToolbarTextFieldBeginEditing()
 }
 
-class ItineraryToolbarController: UIViewController {
+class ItineraryToolbarController: UIViewController, UITextFieldDelegate {
 
     // MARK: IBOutlets
 
@@ -22,6 +23,10 @@ class ItineraryToolbarController: UIViewController {
     @IBOutlet weak var originTextField: UITextField!
     @IBOutlet weak var destinationTextField: UITextField!
     @IBOutlet weak var switchLocationButton: UIButton!
+
+    // MARK: Properties
+
+    weak var delegate: ItineraryToolbarDelegate?
     
     // MARK: Methods
 
@@ -30,11 +35,19 @@ class ItineraryToolbarController: UIViewController {
 
     }
 
+    // MARK: UITextFieldDelegate
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.delegate?.itineraryToolbarTextFieldBeginEditing()
+    }
+
     // MARK: Actions
     
     @IBAction func didTapOnBackButton(_ sender: Any) {
+        self.delegate?.itineraryToolbarBackButton()
     }
 
     @IBAction func didTapOnSwitchButton(_ sender: Any) {
+        self.delegate?.itineraryToolbarSwitchButton()
     }
 }

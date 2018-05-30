@@ -67,6 +67,8 @@ class ResultsViewController: UIViewController{
         results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Origin", color: UIColor.green, opacity: 1.0, flat: true, imageName: "ic_start_point")
         results[routeIndex].drawDestinationMarkerOnMap(mapView, title: "Destination", color: UIColor.red, opacity: 1.0, flat: true, imageName: "ic_end_point")
         directions.reloadData()
+
+        print("overviewPolyline: \(results[routeIndex].overviewPolyline)")
     }
 
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
